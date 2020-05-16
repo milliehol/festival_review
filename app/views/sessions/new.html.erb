@@ -1,15 +1,9 @@
-<%= form_for @user do |f| %>
+<%= form_for(User.new, url: '/login') do |f| %>
 
   <div class="form-group">
-    <%= f.label :name %>
+    <%= f.label :username %>
     <br>
-    <%= collection_select(:user, :name, User.all, :name, :name, prompt: "Please select your username from this dropdown") %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :username, "Username" %>
-    <br>
-    <%= f.text_field :username, class: "form-control" %>
+    <%= collection_select(:user, :username, User.all, :username, :username, prompt: "Please select your username from this dropdown") %>
   </div>
 
   <div class="form-group">
@@ -19,7 +13,7 @@
 
     <div class="actions">
       <br/>
-      <%= f.submit "Sign IN" class: "btn btn-primary" %>
+      <%= f.submit "Sign IN" %>
     </div>
 
 <% end %>
