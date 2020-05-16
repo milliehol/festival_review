@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create', as: 'session'
   get '/signup', to: 'users#new', as: 'signup'
   delete '/session/', to: 'session#destroy'
-  
+
   resources :reviews
   resources :festivals
   resources :cities
