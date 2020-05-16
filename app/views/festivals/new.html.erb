@@ -1,0 +1,25 @@
+<div class="container form-group">
+  <h1>Add a new festival:</h1>
+
+  <% if @festival.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@festival.errors.count, "error") %> prohibited this festival from being saved:</h3>
+
+      <ul>
+        <% @festival.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form_for @festival do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %><br>
+    <%= f.label :description %>
+    <%= f.text_field :description, class: "form-control" %><br>
+    <%= f.label :city_id %><br>
+    <%= f.collection_select :city_id, City.all, :id, :name %><br></br>
+    <%= f.submit "Add Festival", class: "btn btn-default" %>
+  <% end %>
+</div>
