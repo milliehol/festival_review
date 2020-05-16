@@ -16,10 +16,17 @@
   <%= form_for @festival do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name, class: "form-control" %><br>
+    <%= f.label :theme %>
+    <%= f.text_field :theme, class: "form-control" %><br>
     <%= f.label :description %>
     <%= f.text_field :description, class: "form-control" %><br>
-    <%= f.label :city_id %><br>
-    <%= f.collection_select :city_id, City.all, :id, :name %><br></br>
+    <p>Select a city that already exists:</p>
+    <%= f.collection_select :city_id, City.all, :id, :name %><br>
+    <p>Or create a new city:</p>
+    <%= f.fields_for :city do |c| %>
+      <%= c.label :name %>
+      <%= c.text_field :name, class: "form-control" %><br>
+    <% end %>
     <%= f.submit "Add Festival", class: "btn btn-default" %>
   <% end %>
 </div>
