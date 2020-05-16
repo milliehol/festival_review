@@ -7,10 +7,12 @@ class UsersController < ApplicationController
 
   def create
     if (user = User.create(user_params))
+      #need to authenticate?
       session[:user_id] = user.id
       redirect_to user_path(user)
     else
-      render 'new'
+      flash[:error] = "Invalid username or password."
+      render login_path
     end
   end
 
