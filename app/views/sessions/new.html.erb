@@ -1,0 +1,25 @@
+<%= form_for @user do |f| %>
+
+  <div class="form-group">
+    <%= f.label :name %>
+    <br>
+    <%= collection_select(:user, :name, User.all, :name, :name, prompt: "Please select your username from this dropdown") %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :username, "Username" %>
+    <br>
+    <%= f.text_field :username, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password %>
+    <br>
+    <%= f.password_field :password, class: "form-control" %>
+
+    <div class="actions">
+      <br/>
+      <%= f.submit "Sign IN" class: "btn btn-primary" %>
+    </div>
+
+<% end %>
