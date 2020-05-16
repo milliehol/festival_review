@@ -11,8 +11,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect_to user_path(user)
     else
-      flash[:error] = "Invalid username or password."
-      render login_path
+      render 'new'
     end
   end
 

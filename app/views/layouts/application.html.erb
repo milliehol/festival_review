@@ -12,14 +12,6 @@
   <body>
   <%= render 'layouts/navigation' %>
 
-  <% if flash(:error) %>
-    <h3 style="color:red;"><%= flash[:error] %></h3>
-  <% end %>
-
-  <% if flash(:message) %>
-    <h3><%= flash[:message] %></h3>
-  <% end %>
-
   <%= yield %>
 
   <hr>
