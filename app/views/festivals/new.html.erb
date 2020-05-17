@@ -13,6 +13,8 @@
     </div>
   <% end %>
 
+  <%= render partial: 'layouts/errors', locals: {object: @festival}  %>
+
   <%= form_for @festival do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name, class: "form-control" %><br>
