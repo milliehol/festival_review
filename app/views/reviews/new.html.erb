@@ -1,8 +1,6 @@
-<%=  display_header(@review)%>
-
-<%= render partial: 'layouts/errors', locals: {object: @review}  %>
 
 
+<h1>Add a review for <% @review.festival.name %></h1>
 
 <%= form_for(@review) do |f|%>
   <% if params[:festival_id] %>
@@ -24,8 +22,6 @@
     <%= f.text_area :content, size: "25x10" %>
   </div>
   <br>
-
-
 
   <%= f.submit %>
 

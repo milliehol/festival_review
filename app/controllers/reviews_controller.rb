@@ -1,9 +1,10 @@
 class ReviewsController < ApplicationController
   #before_action :redirect_if_not_logged_in
 
-
   def new
+    #need festival_id b/c of nested route
     if @festival = Festival.find_by_id(params[:festival_id])
+      #nested route
       @review = @festival.reviews.build
     else
       @review = Review.new
