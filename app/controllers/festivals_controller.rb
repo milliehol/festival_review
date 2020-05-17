@@ -1,11 +1,6 @@
 class FestivalsController < ApplicationController
   def index
-    if current_city
-      @festival = Festival.where('city_id = ?', current_city.id)
-    else
-      flash[:error] = "Please select a city to continue."
-      redirect_to cities_path
-    end
+    @festivals = Festival.order_by_rating.includes(:city)
   end
 
   def new

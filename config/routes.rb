@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new', as: 'signup'
   delete '/logout/', to: 'sessions#destroy', as: "logout"
 
-  get '/city', to: 'cities#show', as: 'cities'
+  #get '/festival', to: 'festivals#show', as: 'festivals'
+  #get '/city', to: 'cities#show', as: 'cities'
+
+  resources :reviews
 
   resources :festivals do
     resources :reviews, only: [:new, :index]
