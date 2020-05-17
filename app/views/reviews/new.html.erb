@@ -1,0 +1,32 @@
+<%=  display_header(@review)%>
+
+<%= render partial: 'layouts/errors', locals: {object: @review}  %>
+
+
+
+<%= form_for(@review) do |f|%>
+  <% if params[:festival_id] %>
+    <%= f.hidden_field :festival_id %>
+  <% else %>
+    <div>
+      <%= f.label :festival_id, "Select a Festival" %>
+      <%= f.collection_select :festival_id, Festival.alpha, :id, :name_and_city, include_blank: true %>
+    </div>
+  <% end %>
+  <div>
+    <%= f.label :rating %>
+    <%= f.number_field :rating, min:0, max:5 %>
+  </div>
+
+  <br>
+  <div>
+    <%= f.label :content %>
+    <%= f.text_area :content, size: "25x10" %>
+  </div>
+  <br>
+
+
+
+  <%= f.submit %>
+
+<% end %>
