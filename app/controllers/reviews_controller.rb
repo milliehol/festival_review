@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :redirect_if_not_logged_in
+  #before_action :redirect_if_not_logged_in
 
 
   def new
@@ -20,7 +20,7 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    @review = Review.find_by_id(params[:id])
+    @reviews = Review.all
   end
 
   def index
