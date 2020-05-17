@@ -29,6 +29,7 @@ class ReviewsController < ApplicationController
     #how do i check if it's nested & a valid id
     if @festival = Festival.find_by_id(params[:festival_id])
       #nested
+      # all reviews for one festival
       @reviews = @festival.reviews
     else
       #it's not nested
