@@ -2,6 +2,6 @@
 
 <% @festivals.each do |f| %>
   <h2><%= f.name %></h2>
-  <%= link_to "Write a review", new_festival_review_path%>
+  <%= link_to "Write a review", new_festival_review_path(f.id)%>
 
 <% end %>
