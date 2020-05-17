@@ -2,7 +2,7 @@ class CitiesController < ApplicationController
   #before_action :redirect_if_not_logged_in
   #
   def index
-    @city = City.alpha
+    @cities = City.all
   end
 
   def show
