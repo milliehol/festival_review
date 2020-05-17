@@ -1,15 +1,4 @@
-<% if @festival %>
-  <h1>Reviews for <%= @festival.name%> - <%= @festival.city%></h1>
-<% else %>
-  <h1>All the Reviews </h1>
-<% end %>
+<h2>Festival Name: <%= @review.festival.name%> </h2>
+<h3>Rating: <%= @review.rating%> </h3>
 
-<ul>
-  <% @reviews.each do |review| %>
-
-    <li>
-      <%= @review.festival.name%>: <%= link_to @review.content, review_path(review)%> - <%= @review.rating%>
-    </li> <br>
-
-  <% end %>
-</ul>
+<p><%= @review.content%></p>
