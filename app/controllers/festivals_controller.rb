@@ -24,8 +24,7 @@ class FestivalsController < ApplicationController
   end
 
   def show
-    session[:festival_id] = params[:id]
-    @festival = current_festival
+    @festivals = Festival.all
   end
 
   private
