@@ -9,4 +9,8 @@ class Festival < ApplicationRecord
   def self.alpha
     order(:city)
   end
+
+  def name_and_city
+    "#{name} - #{city.try(:name)}"
+  end
 end
