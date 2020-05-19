@@ -3,14 +3,19 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
+require ("jquery")
+require("bootstrap")
 require("@rails/ujs").start()
-require("turbolinks").start()
+require("turbolinks")
 require("@rails/activestorage").start()
 require("channels")
-require("bootstrap")
 
-import 'jquery'
+$(document).on('turbolinks:load', function (){ alert("turbolinks on load event works") });
+
+
+
 import 'popper.js'
+import './bootstrap_custom.js'
 
 // stylesheets
 
