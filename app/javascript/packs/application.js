@@ -19,13 +19,8 @@ document.addEventListener("turbolinks:load", () => {
     $('[data-toggle="dropdown"]').dropdown()
 })
 
-$(document).ready(function(){
-    $(".dropdown-toggle").dropdown();
-});
 
 
-
-$(document).on('turbolinks:load', function (){ alert("turbolinks on load event works") });
 
 
 
