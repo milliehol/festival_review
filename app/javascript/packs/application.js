@@ -11,9 +11,6 @@ require("channels");
 
 import 'bootstrap'
 
-document.addEventListener("turbolinks:load", () => {
-    $('[data-toggle="tooltip"]').tooltip()
-})
 
 document.addEventListener("turbolinks:load", () => {
     $('[data-toggle="dropdown"]').dropdown()
