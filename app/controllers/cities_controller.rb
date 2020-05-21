@@ -2,7 +2,7 @@ class CitiesController < ApplicationController
   before_action :verified_user
 
   def index
-    @cities = City.alpha
+    @cities = City.all
   end
 
   def show

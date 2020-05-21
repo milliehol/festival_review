@@ -11,13 +11,18 @@
         Menu
       </a>
        <ul class="dropdown-menu dropdown-menu-right" role="menu">
-
+         <% if current_user %>
         <li><%= link_to "Add New Festival", new_festival_path %></li>
         <li><%= link_to "Add New Review", new_review_path %></li>
         <li><%= link_to "View Festivals", festivals_path %></li>
         <li><%= link_to "View Reviews", reviews_path %></li>
         <li><%= link_to "View Cities", cities_path %></li>
         <li><%= link_to "Log Out", logout_path, method:'delete' %></li>
+         <% else %>
+           <li><%= link_to "Log in", login_path %></li>
+           <li><%= link_to "Sign Up", signup_path %></li>
+
+         <% end %>
       </ul>
 
     </div><!--/.nav-collapse -->
