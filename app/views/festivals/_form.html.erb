@@ -9,12 +9,12 @@
     <%= f.label :description %>
     <%= f.text_field :description, class: "form-control" %><br>
     <p>Select a city that already exists:</p>
-    <%= f.collection_select :city_id, City.all, :id, :name %><br>
+    <%= f.collection_select :city_id, City.all, :id, :name %><br><br>
     <p>Or create a new city:</p>
     <%= f.fields_for :city do |c| %>
       <%= c.label :name %>
       <%= c.text_field :name, class: "form-control" %><br>
     <% end %>
-    <%= f.submit "Add Festival", class: "btn btn-default" %>
+    <%= f.submit "Add Festival", class: "btn btn-primary" %>
   <% end %>
 </div>
