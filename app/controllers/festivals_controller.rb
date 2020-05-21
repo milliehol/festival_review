@@ -1,6 +1,6 @@
 class FestivalsController < ApplicationController
   before_action :set_festival, only:[:show, :edit, :update]
-  before_action :redirect_if_not_logged_in
+  before_action :verified_user
 
   def index
     @festivals = Festival.order_by_rating.includes(:city)

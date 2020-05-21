@@ -1,5 +1,5 @@
 class CitiesController < ApplicationController
-  before_action :redirect_if_not_logged_in
+  before_action :verified_user
 
   def index
     @cities = City.alpha
