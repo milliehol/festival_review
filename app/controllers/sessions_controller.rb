@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  #skip_before_action :verified_user, only: [:new, :create]
+  skip_before_action :verified_user, only: [:new, :create, :welcome]
   
    def welcome
     @user = User.new
