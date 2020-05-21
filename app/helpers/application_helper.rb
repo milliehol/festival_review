@@ -1,9 +1,13 @@
 module ApplicationHelper
-  def current_city
-    @current_city ||= City.find(session[:city_id]) if session[:city_id]
+  helper_method :current_user, :logged_in?
+
+  private
+
+  def logged_in?
+    !!session[:user_id]
   end
 
-  def current_festival
-    @current_festival ||= Festival.find(session[:festival_id]) if session[:festival_id]
+  def redirect_if_not_logged_in
+    redirect_to login_path if !logged_in?
   end
 end

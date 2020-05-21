@@ -6,17 +6,17 @@ class UsersController < ApplicationController
   end
 
   def create
-    if (user = User.create(user_params))
-      #need to authenticate?
-      session[:user_id] = user.id
-      redirect_to user_path(user)
+    @user = User.create(user_params)
+      if @user.save
+      session[:user_id] = @user.id
+      redirect_to user_path(@user)
     else
       render 'new'
     end
   end
 
   def show
-    @user = User.find_by(id: params[:id])
+    @user = User.find_by_id(params[:id])
     redirect_to root_path if !@user
   end
   

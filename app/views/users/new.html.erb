@@ -1,7 +1,8 @@
+<div class="container">
 <%= render partial: 'layouts/errors', locals: {object: @user}  %>
 
-<%= form_for @user do |f| %>
 
+<%= form_for @user do |f| %>
   <div class="form-group">
     <%= f.label :name %>
     <br>
@@ -23,5 +24,6 @@
       <br/>
       <%= f.submit class: "btn btn-primary" %>
     </div>
+  </div>
 
 <% end %>
