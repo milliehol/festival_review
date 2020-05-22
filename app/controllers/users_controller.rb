@@ -17,6 +17,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by_id(params[:id])
+    @review = @user.reviews
     redirect_to root_path if !@user
   end
   
