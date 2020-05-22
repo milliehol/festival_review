@@ -5,13 +5,13 @@
       <a href="/">Home</a>
     &nbsp;
     &nbsp;
-
       <a class="dropdown-toggle dropdown-toggle-left" href="#" id="dropdownMenuLink" data-toggle="dropdown">
         <span class="caret"></span>
         Menu
       </a>
        <ul class="dropdown-menu dropdown-menu-right" role="menu">
          <% if current_user %>
+           <li><%= link_to "Your Reviews", user_path(current_user) %></li>
         <li><%= link_to "Add New Festival", new_festival_path %></li>
         <li><%= link_to "Add New Review", new_review_path %></li>
         <li><%= link_to "View Festivals", festivals_path %></li>

@@ -1,1 +1,8 @@
-<h1>User created</h1>
+<h1>Welcome <%= @user.name%>! </h1>
+
+<h3>Here are your reviews:</h3>
+<ul>
+  <% @user.festivals.each do |f|%>
+    <li> <%= link_to f.name, festival_path(f)%> </li>
+  <% end %>
+</ul>
