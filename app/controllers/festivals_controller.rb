@@ -23,6 +23,7 @@ class FestivalsController < ApplicationController
   end
 
   def show
+    #@user = User.find(params[:user_id])
     @festivals = Festival.all
   end
 
@@ -40,7 +41,7 @@ class FestivalsController < ApplicationController
   private
 
   def festival_params
-    params.require(:festival).permit(:name, :city, :city_id, city_attributes: [:name, :state])
+    params.require(:festival).permit(:name, :theme, :description, :city_id, city_attributes: [:name, :state])
   end
 
   def set_festival

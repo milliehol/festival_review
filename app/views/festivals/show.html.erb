@@ -1,7 +1,14 @@
 <h1>All Festivals</h1>
 
 <% @festivals.each do |f| %>
-  <h2><%= f.name %></h2>
+  <h4><%= f.name %> - <%= f.city.name %>, <%= f.city.state %></h4>
+  <h5><%= f.theme %></h5>
+  <h5><%= f.description %></h5>
+
+  <p>Added by: <%= link_to f.user.name, user_path(f.user)%>
+<br>
+  <%= link_to "Edit #{f.name}", edit_festival_path(f) if f.user == current_user%></p>
 
 
 <% end %>
+<br>
