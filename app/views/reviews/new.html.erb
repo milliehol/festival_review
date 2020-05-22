@@ -1,6 +1,9 @@
 
 
 <%= render partial: 'layouts/errors', locals: {object: @review}  %>
+<%=  display_header(@review)%>
+
+<%= render partial: 'layouts/errors', locals: {object: @review}  %>
 
 <%= form_for(@review) do |f|%>
   <% if params[:festival_id] %>
@@ -13,12 +16,11 @@
   <% end %>
   <div>
     <%= f.label :rating %>
-    <%= f.number_field :rating, min:0, max:5 %>
+    <%= f.number_field :rating, min:0, max:5, size: "5x5" %>
   </div>
 
   <br>
   <div>
-    <%= f.label :content %>
     <%= f.text_area :content, size: "25x10" %>
   </div>
   <br>

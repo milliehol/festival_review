@@ -8,7 +8,10 @@
   <% @reviews.each do |review| %>
 
     <li>
-      <%= review.festival.name%>: <%= link_to review.content, review_path(review)%> - <%= review.rating%>
+      <%= link_to review.festival.name, review_path(review)%> - <%= review.rating%>
+      <br>
+      <%= review.content %>
+      <p>Author: <%= review.user.name%></p>
     </li> <br>
 
   <% end %>
