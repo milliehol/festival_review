@@ -40,7 +40,7 @@ class FestivalsController < ApplicationController
   private
 
   def festival_params
-    params.require(:festival).permit(:name, :city, :city_id, city_attributes: [:name])
+    params.require(:festival).permit(:name, :city, :city_id, city_attributes: [:name, :state])
   end
 
   def set_festival

@@ -13,6 +13,10 @@ class Festival < ApplicationRecord
   end
 
   def name_and_city
-    "#{name} - #{city.try(:name)}"
+    "#{name} - #{city_and_state}"
+  end
+
+  def city_and_state
+    "#{city.try(:name)}, #{city.try(:state)}"
   end
 end
