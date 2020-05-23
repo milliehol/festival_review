@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root 'sessions#welcome'
   get '/auth/facebook/callback' => 'sessions#create'
+  get '/auth/failure', to: redirect('/')
   get '/login', to: 'sessions#new', as: 'login'
   post '/login', to: 'sessions#create', as: 'session'
   get '/signup', to: 'users#new', as: 'signup'

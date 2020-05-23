@@ -10,12 +10,16 @@ class SessionsController < ApplicationController
 
   def create
 
-    if params[:provider] == 'facebook_auth_code'
-    @user = User.find_or_create_by(uid: auth['uid']) do |u|
-      u.name = auth['info']['name']
-      u.email = auth['info']['email']
-      u.image = auth['info']['image']
-      end
+    if request.env[‘omniauth.auth’]
+      @user = User.create_with_omniauth(request.env[‘omniauth.auth’])
+    session[:user_id] = @user.id
+    redirect_to user_path(@user.id)
+    #if params[:provider] == 'facebook_auth_code'
+    #@user = User.find_or_create_by(uid: auth['uid']) do |u|
+    #u.name = auth['info']['name']
+    #u.email = auth['info']['email']
+    #u.image = auth['info']['image']
+    #end
     else
       @user = User.find_by(username: params[:user][:username])
       #did we find someone & did they put in the right password?
