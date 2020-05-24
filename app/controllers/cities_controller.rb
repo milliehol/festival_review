@@ -9,4 +9,10 @@ class CitiesController < ApplicationController
     @cities = City.all
   end
 
+  private
+
+  def city_params
+    params.require(:festival).permit(:name, :state )
+  end
+
 end

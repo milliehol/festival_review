@@ -9,9 +9,9 @@
     <%= f.label :description %>
     <%= f.text_field :description, class: "form-control" %><br>
     <p>Select a city that already exists:</p>
-    <%= f.collection_select :city_id, City.all, :id, :name  %><br><br>
+    <%= f.collection_select :city_id, City.all, :id, :city_and_state, include_blank: 'Select One'  %><br><br>
     <p>Or create a new city:</p>
-    <p><%= f.fields_for :city do |c| %>
+    <%=f.fields_for :city do |c| %>
       <%= c.label :name %>
       <%= c.text_field :name, class: "form-control" %>
         <%= c.label :state %>

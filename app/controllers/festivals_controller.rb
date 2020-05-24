@@ -14,17 +14,20 @@ class FestivalsController < ApplicationController
   def create
     @festival = Festival.new(festival_params)
     @festival.user_id = session[:user_id]
+    if params[:festival][:city_id] == nil
+      @festival.build_city
+    end
     if @festival.save
       redirect_to festival_path(@festival)
     else
-      @festival.build_city
       render :new
     end
   end
 
   def show
+    @festival = Festival.find_by_id(params[:id])
     #@user = User.find(params[:user_id])
-    @festivals = Festival.all
+    #@festival = Festival.find_by(params[:id])
   end
 
   def update
