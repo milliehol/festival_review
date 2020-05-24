@@ -10,10 +10,10 @@ class SessionsController < ApplicationController
 
   def create
 
-    if request.env[‘omniauth.auth’]
-      @user = User.create_with_omniauth(request.env[‘omniauth.auth’])
-    session[:user_id] = @user.id
-    redirect_to user_path(@user.id)
+    if params[:provider] == 'google_oauth2'
+      @user = User.create_by_google_omniauth(auth)
+      session[:user_id] = @user.id
+      redirect_to user_path(@user)
     #if params[:provider] == 'facebook_auth_code'
     #@user = User.find_or_create_by(uid: auth['uid']) do |u|
     #u.name = auth['info']['name']
@@ -35,6 +35,13 @@ class SessionsController < ApplicationController
   def destroy
     session.delete("user_id")
     redirect_to root_path
+  end
+
+  def omniauth
+    @user = User.create_by_google_omniauth(auth)
+
+    session[:user_id] = @user.id
+    redirect_to user_path(@user)
   end
 
   private
