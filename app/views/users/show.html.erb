@@ -1,5 +1,8 @@
 <h1>Welcome <%= @user.name%>! </h1>
 
+<h6>username: <%= @user.username%> </h6>
+<h6>email: <%= @user.email%> </h6>
+
 <h3>Here are the festivals you reviewed:</h3>
 <ul>
   <% @user.reviewed_festivals.each do |f|%>

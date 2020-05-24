@@ -3,13 +3,16 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :reviewed_festivals, :through => :reviews, source: :festival
   has_many :festivals
-  validates :name, presence: true
   validates :email, uniqueness: true, presence: true
-  validates :username, uniqueness: true, presence: true
 
-  def self.create_by_google_omniauth(auth)
-    self.find_or_create_by(username: auth[:info][:email]) do |u|
-      u.password = SecureRandom.hex
+
+  def self.create_by_github_omniauth(auth_hash)
+    self.where(:email => auth_hash["info"]["email"]).first_or_create do |user|
+      user.name = auth_hash["info"]["name"]
+      user.username = auth_hash["info"]["nickname"]
+      user.uid = auth_hash["uid"]
+      user.password = SecureRandom.hex
     end
   end
+
 end

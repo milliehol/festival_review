@@ -10,8 +10,23 @@ class SessionsController < ApplicationController
 
   def create
 
-    if params[:provider] == 'google_oauth2'
-      @user = User.create_by_google_omniauth(auth)
+    if  params[:provider] == 'github'
+      @user = User.create_by_github_omniauth(auth)
+      session[:user_id] = @user.id
+      redirect_to user_path(@user)
+
+
+      #params[:provider] == 'github'
+      #@user = User.create_or_find_by(uid: auth['uid']) do |u|
+      # u.uid = auth['uid']
+      # u.username = auth['info']["username"]
+      # u.email = auth['info']["email"]
+      # u.password = SecureRandom.hex
+      #end
+
+    elsif  @user = User.find_by(username: params[:user][:username])
+      #did we find someone & did they put in the right password?
+      @user.try(:authenticate, params[:user][:password])
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     #if params[:provider] == 'facebook_auth_code'
@@ -21,27 +36,15 @@ class SessionsController < ApplicationController
     #u.image = auth['info']['image']
     #end
     else
-      @user = User.find_by(username: params[:user][:username])
-      #did we find someone & did they put in the right password?
-      if @user.try(:authenticate, params[:user][:password])
-      session[:user_id] = @user.id
-      redirect_to user_path(@user)
-      else
+
       redirect_to login_path
-      end
+
     end
   end
 
   def destroy
     session.delete("user_id")
     redirect_to root_path
-  end
-
-  def omniauth
-    @user = User.create_by_google_omniauth(auth)
-
-    session[:user_id] = @user.id
-    redirect_to user_path(@user)
   end
 
   private
