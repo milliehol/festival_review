@@ -12,6 +12,11 @@ class Festival < ApplicationRecord
     order(:city)
   end
 
+  def city_attributes=(attributes)
+    self.city = City.find_or_create_by(attributes) if !attributes['name'].empty?
+    self.city
+  end
+
   def name_and_city
     "#{name} - #{city_and_state}"
   end
