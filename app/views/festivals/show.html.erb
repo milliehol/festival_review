@@ -2,8 +2,8 @@
 
 
   <h4><%= @festival.name %> - <%= @festival.city.name %>, <%= @festival.city.state %></h4>
-  <h5><%= @festival.theme %></h5>
-  <h5><%= @festival.description %></h5>
+  <h5>Theme: <%= @festival.theme %></h5>
+  <h5>Description: <%= @festival.description %></h5>
 
   <p>Added by: <%= link_to @festival.user.name, user_path(@festival.user)%>
 <br>
