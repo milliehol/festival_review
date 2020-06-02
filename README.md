@@ -1,24 +1,29 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Purpose of Application¶ ↑
 
-Things you may want to cover:
+Allows user to sign up, create festivals, and review festivals.  Only each individual user can edit their festival.
 
-* Ruby version
 
-* System dependencies
+    Ruby Version: Ruby 2.7
 
-* Configuration
+    Rails Version: Rails 6.0.3
 
-* Database creation
 
-* Database initialization
+Database and Application Setup¶ ↑
 
-* How to run the test suite
+Run
 
-* Services (job queues, cache servers, search engines, etc.)
+bundle install
 
-* Deployment instructions
+Once gems are installed, run the following:
 
-* ...
+rails db:create
+rails db:migrate
+rails db:seed
+
+For information on the database credentials to be used, see the config/database.yml file for more information.
+
+rails s
+
+Go to localhost:3000/ and you should see the homepage
