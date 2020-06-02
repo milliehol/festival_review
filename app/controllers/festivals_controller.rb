@@ -50,7 +50,7 @@ class FestivalsController < ApplicationController
   end
 
   def set_festival
-    @festival = Festival.find_by(params[:id])
+    @festival = Festival.find_by_id(params[:id])
     redirect_to festivals_path if !@festival
   end
 end

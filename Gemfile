@@ -22,8 +22,8 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+#omni login gems for github login
 gem 'omniauth'
-gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'
 gem 'omniauth-github'
 
