@@ -1,7 +1,7 @@
 <% if @festival %>
-  <h1>Reviews for <%= @festival.name%> - <%= @festival.city.name%></h1>
+  <h2>Reviews for the <%= @festival.name%> - <%= @festival.city.name%>, <%= @festival.city.state%></h2>
 <% else %>
-  <h1>All Reviews </h1>
+  <h2>Reviews </h2>
 <% end %>
 
 <ul>
