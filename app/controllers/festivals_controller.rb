@@ -25,13 +25,13 @@ class FestivalsController < ApplicationController
   end
 
   def show
-    @festival = Festival.find_by_id(params[:id])
+    # @festival = Festival.find_by_id(params[:id])
     #@user = User.find(params[:user_id])
     #@festival = Festival.find_by(params[:id])
   end
 
   def update
-    @festival = Festival.find_by_id(params[:id])
+    #@festival = Festival.find_by_id(params[:id])
     if @festival.update(festival_params)
       redirect_to festival_path(@festival)
     else
@@ -40,7 +40,7 @@ class FestivalsController < ApplicationController
   end
 
   def edit
-    @festival = Festival.find_by_id(params[:id])
+    #@festival = Festival.find_by_id(params[:id])
   end
 
   private

@@ -4,9 +4,8 @@ class Festival < ApplicationRecord
   belongs_to :user
   belongs_to :city
   accepts_nested_attributes_for :city
-  scope :order_by_rating, -> {left_joins(:reviews).group(:id).order('avg(rating) desc')}
-
   validates :name, presence: true
+  scope :order_by_rating, -> {left_joins(:reviews).group(:id).order('avg(rating) desc')}
 
   def self.alpha
     order(:city)
