@@ -8,16 +8,13 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new', as: 'signup'
   delete '/logout/', to: 'sessions#destroy', as: "logout"
 
-  #get '/festival', to: 'festivals#show', as: 'festivals'
-  #get '/city', to: 'cities#show', as: 'cities'
-
   resources :reviews
 
   resources :festivals do
     resources :reviews, only: [:new, :index]
   end
 
-  resources :reviews
+  #resources :reviews
   resources :cities
   resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

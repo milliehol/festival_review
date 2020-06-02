@@ -21,7 +21,7 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    @reviews = Review.all
+    #@reviews = Review.all
     @review = Review.find_by_id(params[:id])
   end
 

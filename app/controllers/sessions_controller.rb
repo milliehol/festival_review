@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
       @user.try(:authenticate, params[:user][:password])
       session[:user_id] = @user.id
       redirect_to user_path(@user)
-      
+
     else
 
       redirect_to login_path

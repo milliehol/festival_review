@@ -8,4 +8,6 @@
   <p>Added by: <%= link_to @festival.user.name, user_path(@festival.user)%>
 <br>
   <%= link_to "Edit #{@festival.name}", edit_festival_path(@festival) if @festival.user == current_user%></p>
+
+<%= link_to "See all Reviews", festival_reviews_path(@festival) %>
 <hr>

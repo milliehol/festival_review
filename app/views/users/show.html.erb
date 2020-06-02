@@ -6,7 +6,7 @@
 <h3>Here are the festivals you reviewed:</h3>
 <ul>
   <% @user.reviewed_festivals.each do |f|%>
-    <li> <%= link_to f.name, festival_path(f)%>
+    <li> <%= link_to f.name, review_path(f.id)%>
 
     </li>
   <% end %>
