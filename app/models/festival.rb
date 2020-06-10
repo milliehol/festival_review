@@ -13,7 +13,11 @@ class Festival < ApplicationRecord
     order(:city)
   end
 
+<<<<<<< HEAD
 
+=======
+  #allows for nested form
+>>>>>>> f82d0bd163923c0ca309b86864f3d8cc171af129
   def city_attributes=(attributes)
     self.city = City.find_or_create_by(attributes) if !attributes['name'].empty?
     self.city
