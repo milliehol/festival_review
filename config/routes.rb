@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new', as: 'signup'
   delete '/logout/', to: 'sessions#destroy', as: "logout"
 
+  get '/festivals/viewlongest', to: 'festivals#viewlongest'
+
   resources :reviews
 
   resources :festivals do

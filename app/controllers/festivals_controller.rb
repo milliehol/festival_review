@@ -6,17 +6,22 @@ class FestivalsController < ApplicationController
     @festivals = Festival.order_by_rating.includes(:city)
   end
 
+  def viewlongest
+    @festivals = Festival.longest.includes(:city)
+    @festival = @festivals.first
+    
+  end
+
   def new
     @festival = Festival.new
     @festival.build_city
   end
 
   def create
-    @festival = Festival.new(festival_params)
-    @festival.user_id = session[:user_id]
-    if params[:festival][:city_id] == nil
-      @festival.build_city
-    end
+    #festivals = Festival.new(festival_params)
+    @festival = current_user.festivals.build(festival_params)
+    #@festival = Festival.new(festival_params)
+    #@festival.user_id = session[:user_id]
     if @festival.save
       redirect_to festival_path(@festival)
     else

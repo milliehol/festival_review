@@ -6,10 +6,13 @@ class Festival < ApplicationRecord
   accepts_nested_attributes_for :city
   validates :name, presence: true
   scope :order_by_rating, -> {left_joins(:reviews).group(:id).order('avg(rating) desc')}
+  scope :longest, -> { order('length(name) desc')}
+
 
   def self.alpha
     order(:city)
   end
+
 
   def city_attributes=(attributes)
     self.city = City.find_or_create_by(attributes) if !attributes['name'].empty?
